@@ -316,6 +316,8 @@ public:
     void setDepthTest(bool bOn);
 
     virtual void mainLoop(void) = 0;
+    void setupScreenScale(CCSize contentSize, CCSize screenSize);
+    void updateScreenScale(CCSize screenSize);
 
     /** The size in pixels of the surface. It could be different than the screen size.
     High-res devices might have a higher surface size than the screen size.
@@ -324,6 +326,9 @@ public:
     */
     void setContentScaleFactor(float scaleFactor);
     float getContentScaleFactor(void);
+    
+    float getScreenScaleFactorMax();
+    float getScreenTop();
 
 public:
     /** CCScheduler associated with this director
@@ -429,6 +434,17 @@ protected:
     
     /* content scale factor */
     float    m_fContentScaleFactor;
+    
+    CCSize m_contentSize;
+    CCSize m_screenSize;
+    float m_fScreenTop;
+    float m_fScreenBottom;
+    float m_fScreenLeft;
+    float m_fScreenRight;
+    float m_fScreenScaleFactor;
+    float m_fScreenScaleFactorMax;
+    float m_fScreenScaleFactorH;
+    float m_fScreenScaleFactorW;
 
     /* store the fps string */
     char *m_pszFPS;

@@ -938,6 +938,38 @@ void CCDirector::createStatsLabel()
     m_pFPSLabel->setPosition(CC_DIRECTOR_STATS_POSITION);
 }
 
+void CCDirector::setupScreenScale(CCSize contentSize, CCSize screenSize)
+{
+    m_contentSize = contentSize;
+    updateScreenScale(screenSize);
+}
+
+void CCDirector::updateScreenScale(CCSize screenSize)
+{
+    m_screenSize = screenSize;
+    CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+    ResolutionPolicy policy = ((m_screenSize.height / m_contentSize.height) > (m_screenSize.width / m_contentSize.width)) ? kResolutionFixedWidth : kResolutionFixedHeight;
+    pEGLView->setDesignResolutionSize(m_contentSize.width, m_contentSize.height, policy);
+    
+    CCSize windowSize = getWinSize();
+    m_fScreenTop = windowSize.height;
+    m_fScreenBottom = 0;
+    m_fScreenLeft = 0;
+    m_fScreenRight = windowSize.width;
+    m_fScreenScaleFactorW = windowSize.width / m_contentSize.width;
+    m_fScreenScaleFactorH = windowSize.height / m_contentSize.height;
+    
+    if (m_fScreenScaleFactorW <= m_fScreenScaleFactorH)
+        m_fScreenScaleFactor = m_fScreenScaleFactorW;
+    else
+        m_fScreenScaleFactor = m_fScreenScaleFactorH;
+    
+    if (m_fScreenScaleFactorW < m_fScreenScaleFactorH)
+        m_fScreenScaleFactorMax = m_fScreenScaleFactorH;
+    else
+        m_fScreenScaleFactorMax = m_fScreenScaleFactorW;
+}
+
 float CCDirector::getContentScaleFactor(void)
 {
     return m_fContentScaleFactor;
@@ -950,6 +982,16 @@ void CCDirector::setContentScaleFactor(float scaleFactor)
         m_fContentScaleFactor = scaleFactor;
         createStatsLabel();
     }
+}
+
+float CCDirector::getScreenScaleFactorMax()
+{
+    return m_fScreenScaleFactorMax;
+}
+
+float CCDirector::getScreenTop()
+{
+    return m_fScreenTop;
 }
 
 CCNode* CCDirector::getNotificationNode() 

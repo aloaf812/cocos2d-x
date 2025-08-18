@@ -73,6 +73,8 @@ public:
      @brief Get target platform
      */
     virtual TargetPlatform getTargetPlatform();
+    
+    virtual void openURL(char const* url);
 
 protected:
     static CCApplication * sm_pSharedApplication;
