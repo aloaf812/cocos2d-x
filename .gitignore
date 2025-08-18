@@ -37,7 +37,7 @@ SubmissionInfo
 *.hps
 
 # Ignore files build by ndk and eclipse
-libs/
+# comment this out because it's messing with android/prebuilt: libs/
 bin/
 obj/
 gen/
