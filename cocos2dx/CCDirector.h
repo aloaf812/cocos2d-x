@@ -329,6 +329,9 @@ public:
     
     float getScreenScaleFactorMax();
     float getScreenTop();
+    float getScreenBottom();
+    float getScreenLeft();
+    float getScreenRight();
 
 public:
     /** CCScheduler associated with this director

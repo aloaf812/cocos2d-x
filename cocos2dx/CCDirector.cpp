@@ -994,6 +994,22 @@ float CCDirector::getScreenTop()
     return m_fScreenTop;
 }
 
+float CCDirector::getScreenBottom()
+{
+    return m_fScreenBottom;
+}
+
+float CCDirector::getScreenLeft()
+{
+    return m_fScreenLeft;
+}
+
+float CCDirector::getScreenRight()
+{
+    return m_fScreenRight;
+}
+
+
 CCNode* CCDirector::getNotificationNode() 
 { 
     return m_pNotificationNode; 
