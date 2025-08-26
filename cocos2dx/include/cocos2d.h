@@ -299,6 +299,9 @@ THE SOFTWARE.
 #include "support/component/CCComponent.h"
 #include "support/component/CCComponentContainer.h"
 
+// DS_Dictionary
+#include "../robtop/xml/DS_Dictionary.h"
+
 NS_CC_BEGIN
 
 CC_DLL const char* cocos2dVersion();
