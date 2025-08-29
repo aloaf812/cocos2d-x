@@ -182,6 +182,7 @@ THE SOFTWARE.
 	#include "platform/winrt/CCStdC.h"
 	#include "platform/winrt/CCAccelerometer.h"
 	#include "platform/winrt/CCPrecompiledShaders.h"
+	#include "../robtop/Hekkus/HSS.h"
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_WP8
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
