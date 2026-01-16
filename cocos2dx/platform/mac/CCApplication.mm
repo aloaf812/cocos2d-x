@@ -163,4 +163,11 @@ const std::string& CCApplication::getStartupScriptFilename(void)
     return m_startupScriptFilename;
 }
 
+void CCApplication::openURL(const char* url)
+{
+    /*NSString *msg = [NSString stringWithCString:url encoding:NSASCIIStringEncoding];
+    NSURL *nsUrl = [NSURL URLWithString:msg];
+    [[UIApplication sharedApplication] openURL:nsUrl];*/
+}
+
 NS_CC_END

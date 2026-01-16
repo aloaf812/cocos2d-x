@@ -80,7 +80,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level1</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
@@ -350,6 +350,7 @@ xcopy /Y /Q "$(ProjectDir)..\platform\third_party\win32\libraries\*.*" "$(OutDir
     <ClInclude Include="..\platform\win32\CCGL.h" />
     <ClInclude Include="..\platform\win32\CCPlatformDefine.h" />
     <ClInclude Include="..\platform\win32\CCStdC.h" />
+    <ClInclude Include="..\robtop\Hekkus\include\include\Array.h" />
     <ClInclude Include="..\shaders\CCGLProgram.h" />
     <ClInclude Include="..\shaders\ccGLStateCache.h" />
     <ClInclude Include="..\shaders\CCShaderCache.h" />

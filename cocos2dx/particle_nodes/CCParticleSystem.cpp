@@ -1348,6 +1348,10 @@ void CCParticleSystem::setScaleY(float newScaleY)
     CCNode::setScaleY(newScaleY);
 }
 
+// matcool/cocos2d-x-gd
+void CCParticleSystem::resumeSystem(void) {
+	m_bIsActive = true;
+}
 
 NS_CC_END
 

@@ -69,6 +69,8 @@ public:
      */
     virtual TargetPlatform getTargetPlatform();
 
+    virtual void openURL(char const* url);
+
     /**
      *  Sets the Resource root path.
      *  @deprecated Please use CCFileUtils::sharedFileUtils()->setSearchPaths() instead.

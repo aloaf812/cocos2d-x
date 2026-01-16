@@ -11,8 +11,6 @@
  * Copyright (C) 2003, by Kristen Wegner (kristen@tima.net)
  */
 
-#include "../../include/cocos2d.h"
-
 #ifndef PUGIXML_VERSION
 // Define version macro; evaluates to major * 100 + minor so that it's safe to use in less-than comparisons
 #	define PUGIXML_VERSION 120
@@ -371,7 +369,6 @@ namespace pugi
 	public:
 		// Default constructor. Constructs an empty node.
 		xml_node();
-		// GEODE_CUSTOM_CONSTRUCTOR_BEGIN(xml_node);
 
 		// Constructs node from internal pointer
 		explicit xml_node(xml_node_struct* p);
@@ -853,7 +850,6 @@ namespace pugi
 	{
 	private:
 		char_t* _buffer;
-		// GEODE_CUSTOM_CONSTRUCTOR_COCOS(xml_document, xml_node);
 
 		char _memory[192];
 		

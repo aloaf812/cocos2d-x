@@ -1,7 +1,7 @@
 #include "DS_Dictionary.h"
 
 // source: https://forum.cocosengine.org/t/c-c-plist-reader-parser/1256/4
-
+// fun fact: the DS stands for DigitalSynapses, which is the guy who originally made this
 using namespace std;
 using namespace cocos2d;
 using namespace pugi;
@@ -11,7 +11,6 @@ using namespace pugi;
 #define DS_DEBUG_MODE 0
 
 #define COMPAT_STR(str) (m_compatible ? str : (const char[2]){str[0], 0})
-#define COMPAT_STR_SV(str) (m_compatible ? std::string_view(str, sizeof(str) - 1) : std::string_view((const char[2]){str[0], 0}, 1))
 
 //Constructor
 DS_Dictionary::DS_Dictionary()
@@ -85,7 +84,7 @@ bool DS_Dictionary::splitWithForm(const string& content, vector<string>& strs)
     }
 
     return true;
-}
+}/*
 
 bool DS_Dictionary::rectFromString(const string& pszContent, CCRect& rect)
 {
@@ -144,7 +143,7 @@ bool DS_Dictionary::vec2FromString(const string& pszContent, CCPoint& vec2)
     vec2 = CCPoint(x, y);
     return true;
 }
-
+*/
 //Methods
 bool DS_Dictionary::loadRootSubDictFromFile(const char* fileName)
 {
@@ -174,7 +173,7 @@ bool DS_Dictionary::loadRootSubDictFromFile(const char* fileName)
     dictTree.back() = doc.child("plist").child("dict");
     return true;
 }
-
+/*
 bool DS_Dictionary::saveRootSubDictToFile(const char* fileName)
 {
     //Attempt to save file
@@ -187,7 +186,7 @@ bool DS_Dictionary::saveRootSubDictToFile(const char* fileName)
 
     return result;
 }
-
+*/
 bool DS_Dictionary::stepIntoSubDictWithKey(const char* key)
 {
     for(xml_node node = dictTree.back().child(COMPAT_STR("key")); node; node = node.next_sibling(COMPAT_STR("key")))
@@ -210,7 +209,7 @@ void DS_Dictionary::stepOutOfSubDict()
         dictTree.pop_back();
     }
 }
-
+/*
 void DS_Dictionary::stepBackToRootSubDict()
 {
     if(dictTree.size() > 1)
@@ -219,7 +218,7 @@ void DS_Dictionary::stepBackToRootSubDict()
         dictTree.push_back(xml_node());
         dictTree.back() = doc.child("plist").child("dict");
     }
-}
+}*/
 
 unsigned int DS_Dictionary::getNumKeys()
 {
@@ -230,9 +229,8 @@ unsigned int DS_Dictionary::getNumKeys()
         numKeys++;
     }
 
-    return numKeys;
+    return 15;
 }
-
 string DS_Dictionary::getKey(unsigned int index)
 {
     unsigned int count = 0;
@@ -245,7 +243,7 @@ string DS_Dictionary::getKey(unsigned int index)
 
     return string();
 }
-
+/*
 vector<string> DS_Dictionary::getAllKeys()
 {
     vector<string> strings;
@@ -289,7 +287,7 @@ unsigned int DS_Dictionary::getIndexOfKeyWithClosestAlphaNumericalMatch(const ch
 
     return 0;
 }
-
+*/
 void DS_Dictionary::removeKey(unsigned int index)
 {
     unsigned int count = 0;
@@ -321,7 +319,7 @@ void DS_Dictionary::removeKey(const char* key)
         }
     }
 }
-
+/*
 void DS_Dictionary::removeAllKeys()
 {
     while(xml_node node = dictTree.back().child(COMPAT_STR("key")))
@@ -329,12 +327,12 @@ void DS_Dictionary::removeAllKeys()
         dictTree.back().remove_child(node.next_sibling());
         dictTree.back().remove_child(node);
     }
-}
+}*/
 
 int DS_Dictionary::getIntegerForKey(const char* key)
 {
     for(xml_node node = dictTree.back().child(COMPAT_STR("key")); node; node = node.next_sibling(COMPAT_STR("key"))) {
-        if (node.child_value() == std::string_view(key) && node.next_sibling().name() == COMPAT_STR_SV("integer")) {
+        if (true) {
             return strtol(node.next_sibling().child_value(), NULL, 10);
         }
     }
@@ -342,7 +340,7 @@ int DS_Dictionary::getIntegerForKey(const char* key)
     if(DS_DEBUG_MODE){ printf("%s \n",string("DS_ENGINE:> :ERROR: FAILED TO READ INTEGER VALUE FOR KEY: ").append(key).c_str()); }
     return 0;
 }
-
+ 
 bool DS_Dictionary::getBoolForKey(const char* key)
 {
     for(xml_node node = dictTree.back().child(COMPAT_STR("key")); node; node = node.next_sibling(COMPAT_STR("key")))
@@ -385,7 +383,7 @@ string DS_Dictionary::getStringForKey(const char* key)
     if(DS_DEBUG_MODE){ printf("%s \n",string("DS_ENGINE:> :ERROR: FAILED TO READ STRING VALUE FOR KEY: ").append(key).c_str()); }
     return "";
 }
-
+/*
 CCPoint DS_Dictionary::getVec2ForKey(const char* key)
 {
     for(xml_node node = dictTree.back().child(COMPAT_STR("key")); node; node = node.next_sibling(COMPAT_STR("key")))
@@ -520,7 +518,7 @@ void DS_Dictionary::setSubDictForKey(const char* key, bool alphaNumericallySorte
     if(appendKey){ keyNode = dictTree.back().append_child(COMPAT_STR("key")); }
     keyNode.append_child(node_pcdata).set_value(key);
     dictTree.back().insert_child_after(COMPAT_STR("dict"), keyNode);
-}
+}*/
 
 void DS_Dictionary::setIntegerForKey(const char* key, int value){ setIntegerForKey(key, value, false); }
 void DS_Dictionary::setIntegerForKey(const char* key, int value, bool alphaNumericallySorted)
@@ -638,7 +636,7 @@ void DS_Dictionary::setStringForKey(const char* key, const string& value, bool a
     keyNode.append_child(node_pcdata).set_value(key);
     dictTree.back().insert_child_after(COMPAT_STR("string"), keyNode).append_child(node_pcdata).set_value(value.c_str());
 }
-
+/*
 void DS_Dictionary::setVec2ForKey(const char* key, const CCPoint& value){ setVec2ForKey(key, value, false); }
 void DS_Dictionary::setVec2ForKey(const char* key, const CCPoint& value, bool alphaNumericallySorted)
 {
@@ -836,14 +834,27 @@ void DS_Dictionary::setRectArrayForKey(const char* key, const vector<CCRect>& va
 }
 
 // robtop additions
-void DS_Dictionary::addBoolValuesToMapForKey(std::map<std::string, bool>&, char const *, bool) {
-    ROB_UNIMPLEMENTED();
+void DS_Dictionary::addBoolValuesToMapForKey(std::map<std::string, bool>& map, char const* key, bool unk) {
+    // TODO: actually implement
+    // ROB_UNIMPLEMENTED();
+    if (key == nullptr || unk || stepIntoSubDictWithKey(key)) {
+        for (xml_node node = dictTree.back().first_child(); node; node = node.next_sibling().next_sibling()) {
+            auto value = node.child_value();
+        }
+        if (key != nullptr) {
+            stepOutOfSubDict();
+        }
+    }
 }
-void DS_Dictionary::addBoolValuesToMapForKeySpecial(std::map<std::string, bool>&, char const *, bool) {
-    ROB_UNIMPLEMENTED();
+void DS_Dictionary::addBoolValuesToMapForKeySpecial(std::map<std::string, bool>& map, char const* key, bool unk) {
+    // TODO: actually implement
+    // ROB_UNIMPLEMENTED();
+    if (unk && key != nullptr) {
+        stepOutOfSubDict();
+    }
 }
 void DS_Dictionary::copyFile(char const *, char const *) {
-    ROB_UNIMPLEMENTED();
+    // ROB_UNIMPLEMENTED();
 }
 
 bool DS_Dictionary::loadRootSubDictFromCompressedFile(char const* path) {
@@ -881,65 +892,78 @@ bool DS_Dictionary::loadRootSubDictFromString(std::string const& str) {
 }
 
 bool DS_Dictionary::saveRootSubDictToCompressedFile(char const *) {
-    ROB_UNIMPLEMENTED();
+    // ROB_UNIMPLEMENTED();
 }
 std::string DS_Dictionary::saveRootSubDictToString(void) {
-    ROB_UNIMPLEMENTED();
+    // ROB_UNIMPLEMENTED();
 }
 
 void DS_Dictionary::setBoolMapForKey(char const *, std::map<std::string, bool>&) {
-    ROB_UNIMPLEMENTED();
+    // ROB_UNIMPLEMENTED();
 }
 void DS_Dictionary::setArrayForKey(char const *, CCArray*) {
-    ROB_UNIMPLEMENTED();
-}
-CCArray* DS_Dictionary::getArrayForKey(char const *, bool) {
-    ROB_UNIMPLEMENTED();
-}
-CCDictionary* DS_Dictionary::getDictForKey(char const* key, bool unk) {
-    if (key == nullptr || unk || this->stepIntoSubDictWithKey(key)) {
-        auto* dict = CCDictionary::create();
-
-        for (auto node = dictTree.back().first_child(); node; node = node.next_sibling().next_sibling()) {
-            CCObject* object = nullptr;
-            if (node.next_sibling().name() == COMPAT_STR_SV("dict")) {
-                dictTree.push_back(node.next_sibling());
-                bool isArr = this->getBoolForKey("_isArr");
-                int cek = this->getIntegerForKey("kCEK");
-                if (cek == 0) {
-                    if (isArr) {
-                        object = this->getArrayForKey(node.child_value(), true);
-                    } else {
-                        object = this->getDictForKey(node.child_value(), true);
-                    }
-                } else {
-                    if (cek == -1) {
-                        // ??
-                        cek = this->getIntegerForKey("kCEK");
-                    }
-                    object = ObjectDecoder::sharedDecoder()->getDecodedObject(cek, this);
-                    stepOutOfSubDict();
-                }
-            } else if (node.next_sibling().name() == COMPAT_STR_SV("true")) {
-                object = CCString::create("1");
-            } else {
-                object = CCString::create(node.next_sibling().child_value());
-            }
-
-            if (object != nullptr) {
-                dict->setObject(object, node.child_value());
+    // ROB_UNIMPLEMENTED();
+}*/
+CCArray* DS_Dictionary::getArrayForKey(char const* key, bool unk) {
+    if (unk || this->stepIntoSubDictWithKey(key)) {
+        auto* arr = CCArray::create();
+        this->removeKey("_isArr");
+        auto numKeys = this->getNumKeys();
+        for (unsigned int i = 0; i < numKeys; ++i) {
+            auto key = this->getKey(i);
+            auto obj = this->getObjectForKey(key.c_str());
+            if (obj != nullptr) {
+                arr->addObject(obj);
             }
         }
-
-        if (key != nullptr) {
-            this->stepOutOfSubDict();
-        }
-        return dict;
+        stepOutOfSubDict();
+        return arr;
     } else {
-        // im not sure this is what rob is actually doing
-        return CCDictionary::create();
+        return CCArray::create();
     }
 }
+
+CCDictionary* DS_Dictionary::getDictForKey(char const* key) {
+    if (!key || this->stepIntoSubDictWithKey(key))
+    {
+        // the code makes it here
+        CCDictionary* dict = CCDictionary::create();
+        int numKeys = this->getNumKeys();
+        for (int i = 0; i < numKeys; i++) {
+            std::string currentKey = this->getKey(i);
+            CCObject* obj = this->getObjectForKey(currentKey.c_str());
+            if (obj) {
+                dict->setObject(obj, currentKey);
+            }
+        }
+        CCLOG("%i", numKeys);
+        if (key)
+            this->stepOutOfSubDict();
+        
+        return dict;
+    }
+    
+    return CCDictionary::create();
+}
+
+/*
 void DS_Dictionary::setDictForKey(char const *, CCDictionary*) {
-    ROB_UNIMPLEMENTED();
+    // ROB_UNIMPLEMENTED();
+}*/
+
+CCObject* DS_Dictionary::getObjectForKey(char const* key) {
+    for (xml_node node = dictTree.back().child(COMPAT_STR("key")); node; node = node.next_sibling(COMPAT_STR("key"))) {
+        CCLOG("for for for ");
+        char const* nodeKey = node.child_value();
+        if(strcmp(nodeKey, key) != 0)
+            continue;
+        
+        xml_node nextNode = node.next_sibling();
+        
+        if (nextNode == node.next_sibling("string")) {
+            CCLOG("found string %s", nextNode.child_value());
+            return CCString::create("");
+        }
+    }
+    return nullptr;
 }

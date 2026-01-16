@@ -103,6 +103,9 @@
     <Filter Include="support\component">
       <UniqueIdentifier>{485f1c18-d463-48d0-bcaa-a10e32aa3332}</UniqueIdentifier>
     </Filter>
+    <Filter Include="robtop">
+      <UniqueIdentifier>{57302487-3093-4121-853f-e09833f7fd6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\base_nodes\CCAtlasNode.cpp">
@@ -952,5 +955,6 @@
     <ClInclude Include="..\support\component\CCComponentContainer.h">
       <Filter>support\component</Filter>
     </ClInclude>
+    <ClInclude Include="..\robtop\Hekkus\include\include\Array.h" />
   </ItemGroup>
 </Project>

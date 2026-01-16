@@ -3,6 +3,8 @@
 #include "CCDirector.h"
 #include <algorithm>
 #include "platform/CCFileUtils.h"
+// the openURL stuff is taken from matcool/cocos2d-x-gd
+#include <Shellapi.h>
 /**
 @brief    This function change the PVRFrame show/hide setting in register.
 @param  bEnable If true show the PVRFrame window, otherwise hide.
@@ -187,6 +189,12 @@ void CCApplication::setStartupScriptFilename(const std::string& startupScriptFil
 {
     m_startupScriptFilename = startupScriptFile;
     std::replace(m_startupScriptFilename.begin(), m_startupScriptFilename.end(), '\\', '/');
+}
+
+// from matcool/cocos2d-x-gd
+void CCApplication::openURL(const char* url)
+{
+    ShellExecuteA(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL);
 }
 
 NS_CC_END

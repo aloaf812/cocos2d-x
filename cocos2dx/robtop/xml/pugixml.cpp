@@ -5719,7 +5719,7 @@ PUGI__NS_BEGIN
 				assert(error_handler);
 				longjmp(*error_handler, 1);
 			#else
-				throw std::bad_alloc();
+				// throw std::bad_alloc();
 			#endif
 			}
 
@@ -8737,7 +8737,7 @@ PUGI__NS_BEGIN
 		#ifdef PUGIXML_NO_EXCEPTIONS
 			longjmp(_error_handler, 1);
 		#else
-			throw xpath_exception(*_result);
+			// throw xpath_exception(*_result);
 		#endif
 		}
 
@@ -8746,7 +8746,7 @@ PUGI__NS_BEGIN
 		#ifdef PUGIXML_NO_EXCEPTIONS
 			throw_error("Out of memory");
 		#else
-			throw std::bad_alloc();
+			// throw std::bad_alloc();
 		#endif
 		}
 
@@ -9731,7 +9731,7 @@ namespace pugi
 			#ifdef PUGIXML_NO_EXCEPTIONS
 				return;
 			#else
-				throw std::bad_alloc();
+				// throw std::bad_alloc();
 			#endif
 			}
 
@@ -10029,7 +10029,7 @@ namespace pugi
 		#ifdef PUGIXML_NO_EXCEPTIONS
 			_result.error = "Out of memory";
 		#else
-			throw std::bad_alloc();
+			// throw std::bad_alloc();
 		#endif
 		}
 		else
@@ -10129,7 +10129,7 @@ namespace pugi
 			xpath_parse_result res;
 			res.error = "Expression does not evaluate to node set";
 
-			throw xpath_exception(res);
+			// throw xpath_exception(res);
 		#endif
 		}
 		

@@ -418,6 +418,8 @@ public:
     void stopSystem();
     //! Kill all living particles.
     void resetSystem();
+	// @note RobTop Addition (taken from matcool/cocos2d-x-gd)
+	void resumeSystem();
     //! whether or not the system is full
     bool isFull();
 

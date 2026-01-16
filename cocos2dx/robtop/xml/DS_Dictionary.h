@@ -58,7 +58,7 @@ public:
 	std::vector<cocos2d::CCPoint> getVec2ArrayForKey(const char*);
 	std::vector<cocos2d::CCRect> getRectArrayForKey(const char*);
 	cocos2d::CCArray* getArrayForKey(const char*, bool);
-	cocos2d::CCDictionary* getDictForKey(const char*, bool);
+	cocos2d::CCDictionary* getDictForKey(const char*);
 	cocos2d::CCObject* getObjectForKey(const char*);
 
 	void setIntegerForKey(const char*, int);

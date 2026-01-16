@@ -168,4 +168,9 @@ ccLanguageType CCApplication::getCurrentLanguage()
 	return ret;
 }
 
+void CCApplication::openURL(const char* url)
+{
+
+}
+
 NS_CC_END
