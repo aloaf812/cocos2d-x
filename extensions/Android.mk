@@ -25,6 +25,26 @@ GUI/CCEditBox/CCEditBox.cpp \
 GUI/CCEditBox/CCEditBoxImplAndroid.cpp \
 network/HttpClient.cpp \
 network/WebSocket.cpp \
+CocoStudio/GUI/BaseClasses/UIWidget.cpp \
+CocoStudio/GUI/Layouts/UILayout.cpp \
+CocoStudio/GUI/Layouts/UILayoutParameter.cpp \
+CocoStudio/GUI/Layouts/UILayoutDefine.cpp \
+CocoStudio/GUI/System/CocosGUI.cpp \
+CocoStudio/GUI/System/UIHelper.cpp \
+CocoStudio/GUI/System/UITouchGroup.cpp \
+CocoStudio/GUI/UIWidgets/ScrollWidget/UIListView.cpp \
+CocoStudio/GUI/UIWidgets/ScrollWidget/UIPageView.cpp \
+CocoStudio/GUI/UIWidgets/ScrollWidget/UIScrollView.cpp \
+CocoStudio/GUI/UIWidgets/UIButton.cpp \
+CocoStudio/GUI/UIWidgets/UICheckBox.cpp \
+CocoStudio/GUI/UIWidgets/UIImageView.cpp \
+CocoStudio/GUI/UIWidgets/UILabel.cpp \
+CocoStudio/GUI/UIWidgets/UILabelAtlas.cpp \
+CocoStudio/GUI/UIWidgets/UILabelBMFont.cpp \
+CocoStudio/GUI/UIWidgets/UILoadingBar.cpp \
+CocoStudio/GUI/UIWidgets/UISlider.cpp \
+CocoStudio/GUI/UIWidgets/UITextField.cpp \
+CocoStudio/GUI/UIWidgets/UIRichText.cpp \
 LocalStorage/LocalStorageAndroid.cpp 
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
