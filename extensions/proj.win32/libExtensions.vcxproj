@@ -95,6 +95,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\AssetsManager\AssetsManager.cpp" />
     <ClCompile Include="..\CocoStudio\GUI\Layouts\UILayout.cpp" />
     <ClCompile Include="..\CocoStudio\GUI\Layouts\UILayoutDefine.cpp" />
     <ClCompile Include="..\CocoStudio\GUI\Layouts\UILayoutParameter.cpp" />
@@ -122,6 +123,7 @@
     <ClCompile Include="Win32InputBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AssetsManager\AssetsManager.h" />
     <ClInclude Include="..\CocoStudio\GUI\Layouts\UILayout.h" />
     <ClInclude Include="..\CocoStudio\GUI\Layouts\UILayoutDefine.h" />
     <ClInclude Include="..\CocoStudio\GUI\Layouts\UILayoutParameter.h" />

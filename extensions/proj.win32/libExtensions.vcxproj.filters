@@ -28,6 +28,9 @@
     <Filter Include="CocoStudio\GUI\Layouts">
       <UniqueIdentifier>{31516810-6f23-4212-a7ce-3f33a727d145}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AssetsManager">
+      <UniqueIdentifier>{1a92713d-e076-4015-8040-958775f9c7f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\GUI\CCScrollView\CCScrollView.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="..\CocoStudio\GUI\Layouts\UILayoutParameter.cpp">
       <Filter>CocoStudio\GUI\Layouts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AssetsManager\AssetsManager.cpp">
+      <Filter>AssetsManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +198,9 @@
     </ClInclude>
     <ClInclude Include="..\CocoStudio\GUI\Layouts\UILayoutParameter.h">
       <Filter>CocoStudio\GUI\Layouts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AssetsManager\AssetsManager.h">
+      <Filter>AssetsManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

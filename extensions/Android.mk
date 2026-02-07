@@ -6,6 +6,7 @@ LOCAL_MODULE    := cocos_extension_static
 LOCAL_MODULE_FILENAME := libextension
 
 LOCAL_SRC_FILES := AssetsManager/AssetsManager.cpp \
+CCBReader/CCData.cpp \
 GUI/CCControlExtension/CCControl.cpp \
 GUI/CCControlExtension/CCControlButton.cpp \
 GUI/CCControlExtension/CCControlColourPicker.cpp \
@@ -26,6 +27,7 @@ GUI/CCEditBox/CCEditBox.cpp \
 GUI/CCEditBox/CCEditBoxImplAndroid.cpp \
 network/HttpClient.cpp \
 network/WebSocket.cpp \
+CocoStudio/Armature/CCArmature.cpp \
 CocoStudio/Armature/CCBone.cpp \
 CocoStudio/Armature/animation/CCArmatureAnimation.cpp \
 CocoStudio/Armature/animation/CCProcessBase.cpp \
