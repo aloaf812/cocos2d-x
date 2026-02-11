@@ -106,6 +106,9 @@
     <Filter Include="robtop">
       <UniqueIdentifier>{57302487-3093-4121-853f-e09833f7fd6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="robtop\xml">
+      <UniqueIdentifier>{dd7e9166-cc3e-484e-9f41-a01a54511182}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\base_nodes\CCAtlasNode.cpp">
@@ -476,6 +479,12 @@
     </ClCompile>
     <ClCompile Include="..\support\component\CCComponentContainer.cpp">
       <Filter>support\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\robtop\xml\pugixml.cpp">
+      <Filter>robtop\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\robtop\xml\DS_Dictionary.cpp">
+      <Filter>robtop\xml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -956,5 +965,17 @@
       <Filter>support\component</Filter>
     </ClInclude>
     <ClInclude Include="..\robtop\Hekkus\include\include\Array.h" />
+    <ClInclude Include="..\robtop\xml\DS_Dictionary_Extra.h">
+      <Filter>robtop\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\robtop\xml\pugiconfig.hpp">
+      <Filter>robtop\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\robtop\xml\pugixml.hpp">
+      <Filter>robtop\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\robtop\xml\DS_Dictionary.h">
+      <Filter>robtop\xml</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

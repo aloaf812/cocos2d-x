@@ -206,6 +206,8 @@ xcopy /Y /Q "$(ProjectDir)..\platform\third_party\win32\libraries\*.*" "$(OutDir
     <ClCompile Include="..\platform\win32\CCFileUtilsWin32.cpp" />
     <ClCompile Include="..\platform\win32\CCImage.cpp" />
     <ClCompile Include="..\platform\win32\CCStdC.cpp" />
+    <ClCompile Include="..\robtop\xml\DS_Dictionary.cpp" />
+    <ClCompile Include="..\robtop\xml\pugixml.cpp" />
     <ClCompile Include="..\shaders\CCGLProgram.cpp" />
     <ClCompile Include="..\shaders\ccGLStateCache.cpp" />
     <ClCompile Include="..\shaders\CCShaderCache.cpp" />
@@ -351,6 +353,10 @@ xcopy /Y /Q "$(ProjectDir)..\platform\third_party\win32\libraries\*.*" "$(OutDir
     <ClInclude Include="..\platform\win32\CCPlatformDefine.h" />
     <ClInclude Include="..\platform\win32\CCStdC.h" />
     <ClInclude Include="..\robtop\Hekkus\include\include\Array.h" />
+    <ClInclude Include="..\robtop\xml\DS_Dictionary.h" />
+    <ClInclude Include="..\robtop\xml\DS_Dictionary_Extra.h" />
+    <ClInclude Include="..\robtop\xml\pugiconfig.hpp" />
+    <ClInclude Include="..\robtop\xml\pugixml.hpp" />
     <ClInclude Include="..\shaders\CCGLProgram.h" />
     <ClInclude Include="..\shaders\ccGLStateCache.h" />
     <ClInclude Include="..\shaders\CCShaderCache.h" />
