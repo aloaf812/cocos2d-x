@@ -328,6 +328,8 @@ public:
     float getContentScaleFactor(void);
     
     float getScreenScaleFactorMax();
+	float getScreenScaleFactorH();
+	float getScreenScaleFactorW();
     float getScreenTop();
     float getScreenBottom();
     float getScreenLeft();

@@ -1382,6 +1382,9 @@ public:
     virtual void removeAllComponents();
     /// @} end of component functions
 
+	// @note RobTop addition
+	virtual void removeMeAndCleanup();
+
 private:
     /// lazy allocs
     void childrenAlloc(void);

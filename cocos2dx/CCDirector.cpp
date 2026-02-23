@@ -989,6 +989,16 @@ float CCDirector::getScreenScaleFactorMax()
     return m_fScreenScaleFactorMax;
 }
 
+float CCDirector::getScreenScaleFactorH()
+{
+	return m_fScreenScaleFactorH;
+}
+
+float CCDirector::getScreenScaleFactorW()
+{
+	return m_fScreenScaleFactorW;
+}
+
 float CCDirector::getScreenTop()
 {
     return m_fScreenTop;

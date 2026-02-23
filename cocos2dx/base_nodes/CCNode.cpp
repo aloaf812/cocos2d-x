@@ -1324,6 +1324,10 @@ void CCNode::removeAllComponents()
     m_pComponentContainer->removeAll();
 }
 
+void CCNode::removeMeAndCleanup() {
+    return removeFromParent();
+}
+
 // CCNodeRGBA
 CCNodeRGBA::CCNodeRGBA()
 : _displayedOpacity(255)
