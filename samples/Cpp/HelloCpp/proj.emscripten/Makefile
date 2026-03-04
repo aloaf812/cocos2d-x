@@ -32,7 +32,7 @@ $(TARGET).data:
 	(cd $(RESOURCE_PATH) && cp -a $(RESOURCES) $(RESTMP))
 	(cd $(FONT_PATH) && cp -a * $(RESTMP)/fonts)
 	# NOTE: we copy the system arial.ttf so that there is always a fallback.
-	cp /Library/Fonts/Arial.ttf $(RESTMP)/fonts/arial.ttf
+	# this line only works on macOS: cp /Library/Fonts/Arial.ttf $(RESTMP)/fonts/arial.ttf
 	(cd $(RESTMP); python $(PACKAGER) $(EXECUTABLE).data $(patsubst %,--preload %,$(RESOURCES)) --preload fonts --pre-run > $(EXECUTABLE).data.js)
 	mv $(RESTMP)/$(EXECUTABLE).data $@
 	mv $(RESTMP)/$(EXECUTABLE).data.js $@.js

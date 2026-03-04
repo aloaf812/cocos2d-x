@@ -42,6 +42,7 @@ public:
      */
     virtual TargetPlatform getTargetPlatform();
 
+	virtual void openURL(char const* url);
 
     /**
 	 *  Sets the Resource root path.

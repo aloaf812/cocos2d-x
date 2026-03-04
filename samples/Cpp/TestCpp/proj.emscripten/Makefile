@@ -537,7 +537,7 @@ $(TARGET).data: $(CORE_MAKEFILE_LIST) $(patsubst %,$(RESOURCE_PATH)/%,$(RESOURCE
 	mkdir -p $(RESTMP)/fonts
 	(cd $(RESOURCE_PATH) && tar cf - $(RESOURCES)) | (cd $(RESTMP) && tar xvf -)
 	# NOTE: we copy the system arial.ttf so that there is always a fallback.
-	cp /Library/Fonts/Arial.ttf $(RESTMP)/fonts/arial.ttf
+	# this line only works on macOS: cp /Library/Fonts/Arial.ttf $(RESTMP)/fonts/arial.ttf
 	(cd $(RESTMP); python $(PACKAGER) $(EXECUTABLE).data $(patsubst %,--preload %,$(RESOURCES)) --preload fonts --pre-run > $(EXECUTABLE).data.js)
 	mv $(RESTMP)/$(EXECUTABLE).data $@
 	mv $(RESTMP)/$(EXECUTABLE).data.js $@.js
