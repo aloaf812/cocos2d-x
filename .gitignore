@@ -40,7 +40,7 @@ SubmissionInfo
 # comment this out because it's messing with android/prebuilt: libs/
 bin/
 obj/
-gen/
+# this is messing with emscripten: gen/
 assets/
 local.properties
 
