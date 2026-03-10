@@ -217,6 +217,13 @@ protected:
 
     // 4, 1 for each type of event
     struct ccTouchHandlerHelperData m_sHandlerHelperData[ccTouchMax];
+
+	// yet another copy + paste from matcool/cocos2d-x-gd
+	// @note RobTop Addition
+	CC_SYNTHESIZE(bool, m_forcePrio, ForcePrio);
+	// @note RobTop Addition
+	CC_SYNTHESIZE(int, m_targetPrio, TargetPrio);
+
 };
 
 // end of input group
