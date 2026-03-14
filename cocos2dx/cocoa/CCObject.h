@@ -31,12 +31,23 @@ THE SOFTWARE.
 #include <GLES2/gl2.h>
 #endif // EMSCRIPTEN
 
+class DS_Dictionary;
+
 NS_CC_BEGIN
 
 /**
  * @addtogroup base_nodes
  * @{
  */
+
+// https://github.com/matcool/cocos2d-x-gd/blob/main/cocos2dx/cocoa/CCObject.h
+// this whole system of object types is dumb
+enum class CCObjectType {
+	PlayLayer = 5,
+	LevelEditorLayer = 6,
+	GameObject = 13,
+	MenuLayer = 15,
+};
 
 class CCZone;
 class CCObject;
@@ -86,7 +97,13 @@ public:
     virtual void acceptVisitor(CCDataVisitor &visitor);
 
     virtual void update(float dt) {CC_UNUSED_PARAM(dt);};
+
+	CC_SYNTHESIZE(CCObjectType, m_objType, ObjType);
     
+	virtual void encodeWithCoder(DS_Dictionary*);
+
+	virtual bool canEncode();
+
     friend class CCAutoreleasePool;
 };
 

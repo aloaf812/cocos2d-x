@@ -120,4 +120,14 @@ void CCObject::acceptVisitor(CCDataVisitor &visitor)
     visitor.visitObject(this);
 }
 
+
+void CCObject::encodeWithCoder(DS_Dictionary* encoder)
+{
+
+}
+
+bool CCObject::canEncode() {
+	return false;
+}
+
 NS_CC_END
