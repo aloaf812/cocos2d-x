@@ -214,6 +214,11 @@ TargetPlatform CCApplication::getTargetPlatform()
     return kTargetWinRT;
 }
 
+void CCApplication::openURL(const char* url)
+{
+    // stub
+}
+
 void CCApplication::setResourceRootPath(const std::string& rootResDir)
 {
     m_resourceRootPath = rootResDir;

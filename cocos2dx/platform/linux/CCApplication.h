@@ -58,7 +58,7 @@ public:
      */
     virtual TargetPlatform getTargetPlatform();
 
-	virtual void openURL(char const* url);
+	void openURL(char const* url);
 protected:
     long       m_nAnimationInterval;  //micro second
     std::string m_resourceRootPath;
