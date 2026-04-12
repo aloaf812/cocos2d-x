@@ -1,4 +1,4 @@
-cocos2d-x (96.79% match)
+cocos2d-x
 =========
 
 [![Build Status](https://travis-ci.org/cocos2d/cocos2d-x.png?branch=master)](https://travis-ci.org/cocos2d/cocos2d-x)
