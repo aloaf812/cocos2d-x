@@ -21,4 +21,4 @@
 	url = https://github.com/stammen/angleproject
 [submodule "cocos2dx/platform/third_party/wii/opengx"]
 	path = cocos2dx/platform/third_party/wii/opengx
-	url = https://github.com/devKitPro/opengx
+	url = https://github.com/devkitPro/opengx

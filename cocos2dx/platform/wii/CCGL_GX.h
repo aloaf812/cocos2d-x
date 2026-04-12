@@ -22,9 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __CCGL_H__
-#define __CCGL_H__
+#ifndef __CCGL_GX_H__
+#define __CCGL_GX_H__
 
-#include "CCGL_GX.h"
+#include "../third_party/wii/opengx/include/GL/gl.h"
 
-#endif  // __CCGL_H__
+#endif // __CCGL_GX_H__
