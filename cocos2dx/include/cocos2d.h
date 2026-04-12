@@ -239,6 +239,10 @@ THE SOFTWARE.
     #include "platform/tizen/CCStdC.h"
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN
 
+if (CC_TARGET_PLATFORM == CC_PLATFORM_WII)
+	#include "platform/tizen/CCGL.h"
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WII
+
 // script_support
 #include "script_support/CCScriptSupport.h"
 
