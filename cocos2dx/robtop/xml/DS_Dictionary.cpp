@@ -28,3 +28,14 @@ DS_Dictionary::DS_Dictionary()
 }
 
 DS_Dictionary::~DS_Dictionary() {}
+
+CCDictionary* DS_Dictionary::getDictForKey(char const* key)
+{
+	// nahh like if im ever gonna decompile this
+	return CCDictionary::create();
+}
+
+void DS_Dictionary::setDictForKey(char const* key, CCDictionary* dict)
+{
+
+}
