@@ -43,10 +43,11 @@ NS_CC_BEGIN
 // https://github.com/matcool/cocos2d-x-gd/blob/main/cocos2dx/cocoa/CCObject.h
 // this whole system of object types is dumb
 enum class CCObjectType {
+	BoomScrollLayer = 4,
 	PlayLayer = 5,
 	LevelEditorLayer = 6,
 	GameObject = 13,
-	MenuLayer = 15,
+	MenuLayer = 15
 };
 
 class CCZone;
