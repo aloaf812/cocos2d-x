@@ -316,8 +316,7 @@ public:
     void setDepthTest(bool bOn);
 
     virtual void mainLoop(void) = 0;
-    void setupScreenScale(CCSize contentSize, CCSize screenSize);
-    void updateScreenScale(CCSize screenSize);
+	void setupScreenScale(CCSize contentSize);
 
     /** The size in pixels of the surface. It could be different than the screen size.
     High-res devices might have a higher surface size than the screen size.
@@ -327,13 +326,24 @@ public:
     void setContentScaleFactor(float scaleFactor);
     float getContentScaleFactor(void);
     
-    float getScreenScaleFactorMax();
-	float getScreenScaleFactorH();
+	/* screen scaling */
+	float getScreenScaleFactor();
+	float getScreenScaleFactorMax();
 	float getScreenScaleFactorW();
-    float getScreenTop();
-    float getScreenBottom();
-    float getScreenLeft();
-    float getScreenRight();
+	float getScreenScaleFactorH();
+	float getScreenTop();
+	float getScreenBottom();
+	float getScreenLeft();
+	float getScreenRight();
+
+	float m_fScreenScaleFactor;
+	float m_fScreenScaleFactorMax;
+	float m_fScreenScaleFactorW;
+	float m_fScreenScaleFactorH;
+	float m_fScreenTop;
+	float m_fScreenBottom;
+	float m_fScreenLeft;
+	float m_fScreenRight;
 
 public:
     /** CCScheduler associated with this director
@@ -387,6 +397,7 @@ protected:
     /** calculates delta time since last time it was called */    
     void calculateDeltaTime();
 protected:
+
     /* The CCEGLView, where everything is rendered */
     CCEGLView    *m_pobOpenGLView;
 
@@ -439,17 +450,6 @@ protected:
     
     /* content scale factor */
     float    m_fContentScaleFactor;
-    
-    CCSize m_contentSize;
-    CCSize m_screenSize;
-    float m_fScreenTop;
-    float m_fScreenBottom;
-    float m_fScreenLeft;
-    float m_fScreenRight;
-    float m_fScreenScaleFactor;
-    float m_fScreenScaleFactorMax;
-    float m_fScreenScaleFactorH;
-    float m_fScreenScaleFactorW;
 
     /* store the fps string */
     char *m_pszFPS;

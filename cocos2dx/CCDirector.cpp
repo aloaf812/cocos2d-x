@@ -938,36 +938,39 @@ void CCDirector::createStatsLabel()
     m_pFPSLabel->setPosition(CC_DIRECTOR_STATS_POSITION);
 }
 
-void CCDirector::setupScreenScale(CCSize contentSize, CCSize screenSize)
+// not 100% accurate, but this is functionally accurate
+void CCDirector::setupScreenScale(CCSize contentSize)
 {
-    m_contentSize = contentSize;
-    updateScreenScale(screenSize);
-}
+	CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+	CCSize screenSize = pEGLView->getFrameSize();
 
-void CCDirector::updateScreenScale(CCSize screenSize)
-{
-    m_screenSize = screenSize;
-    CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
-    ResolutionPolicy policy = ((m_screenSize.height / m_contentSize.height) > (m_screenSize.width / m_contentSize.width)) ? kResolutionFixedWidth : kResolutionFixedHeight;
-    pEGLView->setDesignResolutionSize(m_contentSize.width, m_contentSize.height, policy);
-    
-    CCSize windowSize = getWinSize();
-    m_fScreenTop = windowSize.height;
-    m_fScreenBottom = 0;
-    m_fScreenLeft = 0;
-    m_fScreenRight = windowSize.width;
-    m_fScreenScaleFactorW = windowSize.width / m_contentSize.width;
-    m_fScreenScaleFactorH = windowSize.height / m_contentSize.height;
-    
-    if (m_fScreenScaleFactorW <= m_fScreenScaleFactorH)
-        m_fScreenScaleFactor = m_fScreenScaleFactorW;
-    else
-        m_fScreenScaleFactor = m_fScreenScaleFactorH;
-    
-    if (m_fScreenScaleFactorW < m_fScreenScaleFactorH)
-        m_fScreenScaleFactorMax = m_fScreenScaleFactorH;
-    else
-        m_fScreenScaleFactorMax = m_fScreenScaleFactorW;
+	ResolutionPolicy policy;
+	if ((contentSize.width / screenSize.width) <= (contentSize.height / screenSize.height)) {
+		if (screenSize.height * 1.5 <= contentSize.height)
+			setContentScaleFactor(2);
+		
+		policy = kResolutionFixedHeight;
+	}
+	else {
+		if (screenSize.width * 1.5 <= contentSize.width)
+			setContentScaleFactor(2);
+
+		policy = kResolutionFixedWidth;
+	}
+
+	pEGLView->setDesignResolutionSize(contentSize.width, contentSize.height, policy);
+
+	CCSize winSize = sharedDirector()->getWinSize();
+	auto scaledWidth = winSize.width / contentSize.width;
+	auto scaledHeight = winSize.height / contentSize.height;
+	m_fScreenBottom = 0;
+	m_fScreenTop = winSize.height;
+	m_fScreenLeft = 0;
+	m_fScreenRight = winSize.width;
+	m_fScreenScaleFactorW = scaledWidth;
+	m_fScreenScaleFactorH = scaledHeight;
+	m_fScreenScaleFactor = MIN(scaledWidth, scaledHeight);
+	m_fScreenScaleFactorMax = MAX(scaledWidth, scaledHeight);
 }
 
 float CCDirector::getContentScaleFactor(void)
@@ -982,6 +985,11 @@ void CCDirector::setContentScaleFactor(float scaleFactor)
         m_fContentScaleFactor = scaleFactor;
         createStatsLabel();
     }
+}
+
+float CCDirector::getScreenScaleFactor()
+{
+	return m_fScreenScaleFactor;
 }
 
 float CCDirector::getScreenScaleFactorMax()
