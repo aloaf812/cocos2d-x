@@ -96,6 +96,12 @@ public:
     virtual void setOpacityModifyRGB(bool bValue);
     virtual bool isOpacityModifyRGB(void);
 
+	// https://github.com/matcool/cocos2d-x-gd/blob/main/cocos2dx/misc_nodes/CCMotionStreak.h#L116
+	// @note RobTop Addition
+	void resumeStroke();
+	// @note RobTop Addition
+	void stopStroke();
+
     /** When fast mode is enabled, new points are added faster but with lower precision */
     inline bool isFastMode() { return m_bFastMode; }
     inline void setFastMode(bool bFastMode) { m_bFastMode = bFastMode; }
@@ -108,6 +114,8 @@ public:
 protected:
     bool m_bFastMode;
     bool m_bStartingPositionInitialized;
+	// @note RobTop Addition
+	bool m_bStroke;
 private:
     /** texture used for the motion streak */
     CCTexture2D* m_pTexture;

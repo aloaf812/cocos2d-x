@@ -358,5 +358,13 @@ void CCMotionStreak::draw()
     CC_INCREMENT_GL_DRAWS(1);
 }
 
+// https://github.com/matcool/cocos2d-x-gd/blob/main/cocos2dx/misc_nodes/CCMotionStreak.cpp#L368
+void CCMotionStreak::resumeStroke(void) {
+	m_bStroke = true;
+}
+void CCMotionStreak::stopStroke(void) {
+	m_bStroke = false;
+}
+
 NS_CC_END
 
