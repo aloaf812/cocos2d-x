@@ -3,6 +3,7 @@
 
 #include "pugixml.hpp"
 #include <vector>
+#include <algorithm>
 #include "../../include/cocos2d.h"
 
 class CC_DLL DS_Dictionary {
@@ -56,7 +57,7 @@ public:
 	std::vector<std::string> getStringArrayForKey(const char*);
 	std::vector<cocos2d::CCPoint> getVec2ArrayForKey(const char*);
 	std::vector<cocos2d::CCRect> getRectArrayForKey(const char*);
-	cocos2d::CCArray* getArrayForKey(const char*, bool);
+	cocos2d::CCArray* getArrayForKey(const char*);
 	cocos2d::CCDictionary* getDictForKey(const char*);
 	cocos2d::CCObject* getObjectForKey(const char*);
 
