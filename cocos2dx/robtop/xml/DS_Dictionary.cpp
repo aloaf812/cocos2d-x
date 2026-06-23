@@ -103,3 +103,18 @@ bool DS_Dictionary::saveRootSubDictToFile(char const* file)
 {
 	return true;
 }
+
+void DS_Dictionary::setIntegerForKey(char const* key, int value)
+{
+
+}
+
+void DS_Dictionary::setStringForKey(char const* key, const string& value)
+{
+
+}
+
+void DS_Dictionary::setBoolForKey(char const* key, bool value)
+{
+
+}
