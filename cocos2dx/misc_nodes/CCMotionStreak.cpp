@@ -360,10 +360,10 @@ void CCMotionStreak::draw()
 
 // https://github.com/matcool/cocos2d-x-gd/blob/main/cocos2dx/misc_nodes/CCMotionStreak.cpp#L368
 void CCMotionStreak::resumeStroke(void) {
-	m_bStroke = true;
+	// m_bStroke = true;
 }
 void CCMotionStreak::stopStroke(void) {
-	m_bStroke = false;
+	// m_bStroke = false;
 }
 
 NS_CC_END
