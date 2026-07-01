@@ -1383,7 +1383,7 @@ public:
     /// @} end of component functions
 
 	// @note RobTop addition
-	virtual void removeMeAndCleanup();
+	void removeMeAndCleanup();
 
 private:
     /// lazy allocs
