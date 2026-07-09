@@ -1324,6 +1324,10 @@ void CCNode::removeAllComponents()
     m_pComponentContainer->removeAll();
 }
 
+void CCNode::updateTweenAction(float, char const*) {
+	// robtop addition
+}
+
 void CCNode::removeMeAndCleanup() {
     return removeFromParent();
 }

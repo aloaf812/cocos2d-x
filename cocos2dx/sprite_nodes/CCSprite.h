@@ -322,6 +322,9 @@ public:
      */
     virtual void updateTransform(void);
     
+	// @note RobTop Addition
+	virtual void updateTweenAction(float, char const*);
+
     /**
      * Returns the batch node object if this sprite is rendered by CCSpriteBatchNode
      *

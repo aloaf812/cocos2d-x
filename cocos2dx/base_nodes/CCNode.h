@@ -1383,6 +1383,9 @@ public:
     /// @} end of component functions
 
 	// @note RobTop addition
+	virtual void updateTweenAction(float, char const*);
+
+	// @note RobTop addition
 	void removeMeAndCleanup();
 
 private:

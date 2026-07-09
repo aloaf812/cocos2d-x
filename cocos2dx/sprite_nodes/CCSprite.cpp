@@ -543,6 +543,11 @@ void CCSprite::updateTransform(void)
 #endif // CC_SPRITE_DEBUG_DRAW
 }
 
+void CCSprite::updateTweenAction(float, char const*)
+{
+	// robtop addition
+}
+
 // draw
 
 void CCSprite::draw(void)
