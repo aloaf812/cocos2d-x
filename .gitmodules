@@ -19,3 +19,6 @@
 [submodule "cocos2dx/platform/third_party/winrt/angleproject"]
 	path = cocos2dx/platform/third_party/winrt/angleproject
 	url = https://github.com/stammen/angleproject
+[submodule "projects/GD"]
+	path = projects/GD
+	url = https://github.com/aloaf812/GD

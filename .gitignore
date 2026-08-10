@@ -116,3 +116,5 @@ tags
 
 # Ignore projects
 projects/
+!projects/GD/
+projects/GD/*
