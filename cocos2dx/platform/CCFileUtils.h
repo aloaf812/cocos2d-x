@@ -435,6 +435,8 @@ protected:
      */
     static CCFileUtils* s_sharedFileUtils;
     
+	// ROBTOP ADDITION
+	bool shouldUseHD();
 };
 
 // end of platform group
