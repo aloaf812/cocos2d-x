@@ -945,14 +945,17 @@ void CCDirector::setupScreenScale(CCSize contentSize)
 	CCSize screenSize = pEGLView->getFrameSize();
 
 	ResolutionPolicy policy;
+
+	// found the bug lol
+	// - zyann
 	if ((contentSize.width / screenSize.width) <= (contentSize.height / screenSize.height)) {
-		if (screenSize.height * 1.5 <= contentSize.height)
+		if (screenSize.height >= contentSize.height * 1.5f)
 			setContentScaleFactor(2);
 		
 		policy = kResolutionFixedHeight;
 	}
 	else {
-		if (screenSize.width * 1.5 <= contentSize.width)
+		if (screenSize.width >= contentSize.width * 1.5f)
 			setContentScaleFactor(2);
 
 		policy = kResolutionFixedWidth;
